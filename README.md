@@ -84,10 +84,10 @@ TimeSeriesSplit with `n_splits=5` to ensure temporal consistency.
 
 ##  Flask Web Deployment
 
-A **Flask-based interactive web app** allows users to:
-- Input real solar data manually or use automatic time detection.
-- Generate instant predictions from the trained model.
-- Automatically reset the page after refresh for a clean interface.
+A **FastAPI-based** application (decoupled frontend/backend) allows users to:
+- Input the 6 required operational features (like ISC, GEFF, and temperatures).
+- Generate instant predictions by sending data to a JSON API endpoint (/api/predict).
+- Receive predictions without a page reload, ensuring a clean interface on every refresh.
 
 ---
 
