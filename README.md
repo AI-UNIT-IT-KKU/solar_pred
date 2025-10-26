@@ -71,7 +71,7 @@ TimeSeriesSplit with `n_splits=5` to ensure temporal consistency.
 |----------------|-------------|
 | ![corr](img/corr.png) | Correlation heatmap between major features |
 | ![relationship_features](img/relationship_features.png) | Relationship between features and target |
-| ![distribution_of_active_power_during_hours](img/distribution_of_active_power_during_hours.png) | Distribution of active power by time of day |
+| ![distribution_of_active_power_during_hours](img/actvvsored.png) | Distribution of active power by time of day |
 | ![visula_part_of_day_power](img/visula_part_of_day_power.png) | Power production pattern throughout the day |
 | ![peak](img/peak.png) | Predicted vs. Actual during peak hours |
 | ![actual_vs_predict](img/actual_vs_predict.png) | Full-day prediction comparison |
