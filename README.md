@@ -12,20 +12,18 @@
 
 ##  Overview
 
-This project presents a **machine learning–based solar power forecasting system** trained on real solar panel sensor data collected over a full year with minute-level resolution.  
+This project presents a **machine learning–based solar power prediction system** trained on real solar panel sensor data collected over a full year with minute-level resolution.  
 The system predicts **active power output (W)** based on irradiance, temperature, and environmental features.  
-Two models were developed and compared:
 - **XGBoost Predictive Model (1-minue aggregation)**
 
-The **15-minute LightGBM** model achieved higher accuracy and better short-term forecasting stability.
+The **1-minute XGBoost** model achieved higher accuracy and better short-term forecasting stability.
 
 ---
 
 ##  Objectives
 - Predict **real-time solar power output** with high accuracy.  
-- Handle **seasonal and non-linear variations** in irradiance and temperature.  
-- Deploy a **Flask web app** for real-time prediction and visualization.  
-- Compare forecasting intervals (hourly vs. 15-min).  
+- Handle non-linear variations** in irradiance and temperature.  
+- Deploy a **FastAPI web app** for real-time prediction and visualization.  
 - Provide clear visual analysis and system explainability.
 
 ---
