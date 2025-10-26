@@ -15,8 +15,7 @@
 This project presents a **machine learning–based solar power forecasting system** trained on real solar panel sensor data collected over a full year with minute-level resolution.  
 The system predicts **active power output (W)** based on irradiance, temperature, and environmental features.  
 Two models were developed and compared:
-- **LightGBM Forecasting Model (15-minute aggregation)**
-- **XGBoost Predictive Model (1-hour aggregation)**
+- **XGBoost Predictive Model (1-minue aggregation)**
 
 The **15-minute LightGBM** model achieved higher accuracy and better short-term forecasting stability.
 
@@ -42,10 +41,14 @@ The **15-minute LightGBM** model achieved higher accuracy and better short-term 
 
 ##  Features Used
 
+
 | Category | Feature | Description |
 |-----------|----------|-------------|
-| **Temperature** | `avg_moduletemp_combined`, `avg_ambienttemp_c` | Module & ambient temperature |
-| **Humidity** | `avg_humidity_pct` | Air humidity percentage |
+| **Temperature** | `avg_moduletemp1_c`, `avg_temp_refcell_c` | Module & ambient temperature |
+| **Irradiance** | `avg_geff_test_w_m2` | Effective irradiance (W/m²) |
+| **Electrical** | `avg_isc_test_a` | Short-circuit current (A) |
+| **Atmospheric** | `avg_wind_speed_m_s` | Wind speed (m/s) |
+| **Humidity** | `avg_humidity_pct` | Air humidity percentage (%) |
 ---
 
 ##  Hyperparameters (Optimized via GridSearchCV)
@@ -59,7 +62,6 @@ The **15-minute LightGBM** model achieved higher accuracy and better short-term 
 | `colsample_bytree` | 0.8 |
 | `random_state` | 42 |
 
-'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 3, 'min_child_weight': 5, 'n_estimators': 900, 'subsample': 0.8}
 
 **Validation Strategy:**  
 TimeSeriesSplit with `n_splits=5` to ensure temporal consistency.
