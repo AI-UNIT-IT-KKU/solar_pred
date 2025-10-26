@@ -69,15 +69,15 @@ TimeSeriesSplit with `n_splits=5` to ensure temporal consistency.
 
 | Visualization | Description |
 |----------------|-------------|
-| ![corr](solar_studio/corr.png) | Correlation heatmap between major features |
-| ![relationship_features](solar_studio/relationship_features.png) | Relationship between features and target |
-| ![distribution_of_active_power_during_hours](solar_studio/distribution_of_active_power_during_hours.png) | Distribution of active power by time of day |
-| ![visula_part_of_day_power](solar_studio/visula_part_of_day_power.png) | Power production pattern throughout the day |
-| ![peak](solar_studio/peak.png) | Predicted vs. Actual during peak hours |
-| ![actual_vs_predict](solar_studio/actual_vs_predict.png) | Full-day prediction comparison |
-| ![xgboot](solar_studio/xgboot.png) | XGBoost model result comparison |
-| ![night](solar_studio/night.png) | Night vs daytime irradiance data |
-| ![used_web](solar_studio/used_web.gif) | Flask web interface demo |
+| ![corr](img/corr.png) | Correlation heatmap between major features |
+| ![relationship_features](img/relationship_features.png) | Relationship between features and target |
+| ![distribution_of_active_power_during_hours](img/distribution_of_active_power_during_hours.png) | Distribution of active power by time of day |
+| ![visula_part_of_day_power](img/visula_part_of_day_power.png) | Power production pattern throughout the day |
+| ![peak](img/peak.png) | Predicted vs. Actual during peak hours |
+| ![actual_vs_predict](img/actual_vs_predict.png) | Full-day prediction comparison |
+| ![xgboot](img/xgboot.png) | XGBoost model result comparison |
+| ![night](img/night.png) | Night vs daytime irradiance data |
+| ![used_web](img/used_web.gif) | Flask web interface demo |
 
 ---
 
