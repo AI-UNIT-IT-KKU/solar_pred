@@ -77,7 +77,7 @@ TimeSeriesSplit with `n_splits=5` to ensure temporal consistency.
 | ![actual_vs_predict](img/actual_vs_predict.png) | Full-day prediction comparison |
 | ![xgboot](img/xgboot.png) | XGBoost model result comparison |
 | ![night](img/night.png) | Night vs daytime irradiance data |
-| ![used_web](img/interface.gif) | Flask web interface demo |
+| ![used_web](img/interface.gif) | FastAPI web interface demo |
 
 ---
 
