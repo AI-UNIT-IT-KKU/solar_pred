@@ -3,7 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Predictive-orange)
-![FastAPI](https://img.shields.io/badge/Fast-API-WebApp-black?logo=fast)
+![FastAPI](https://img.shields.io/badge/FastAPI-WebApp-009688?logo=fastapi&logoColor=white)
 ![AI](https://img.shields.io/badge/AI%20Unit-KKU-red)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
