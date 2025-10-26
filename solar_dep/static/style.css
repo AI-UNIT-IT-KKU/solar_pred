@@ -1,0 +1,162 @@
+/* هذا الكود تم استخراجه من ملف index.html القديم */
+
+body {
+    margin: 0;
+    /* font-family: 'IBM Plex Sans', sans-serif; */
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #f2f5f7;
+    color: #333;
+}
+
+/* Navbar */
+header {
+    background-color: #f2f5f7;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Makes navbar sticky */
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #211f1f;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f9a826;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://www.tatapower.com/adobe/dynamicmedia/deliver/dm-aid--d3a0eb02-19b9-4c16-8cd6-5272854e278f/Banner.png.webp?quality=85&preferwebp=true&width=1440');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.hero p {
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+/* Form Section */
+.form-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.form-section h2 {
+    font-size: 28px;
+    color: #004466;
+}
+
+.form-section form {
+    margin-top: 30px;
+}
+
+.result {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: green;
+}
+
+/* About Section */
+.about {
+    background-color: #e1ecf4;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    color: #004466;
+    font-size: 28px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #003344;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Input Wrapper styles (from old file) */
+.input-wrapper {
+    flex: 1 1 40%;
+    position: relative;
+    max-width: 300px;
+    margin: 10px; /* Added margin for spacing */
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 10px 10px 10px 38px; /* space for icon */
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: 0.3s;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.input-wrapper input:focus {
+    border-color: #f9a826;
+    outline: none;
+    box-shadow: 0 0 5px rgba(249, 168, 38, 0.6);
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #f9a826;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    .input-wrapper {
+        flex-basis: 100%; /* Full width on mobile */
+    }
+}

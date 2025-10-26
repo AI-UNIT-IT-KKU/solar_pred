@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Solar Power Prediction (FastAPI)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="/static/logo_solar.png" alt="Solar Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Main</a></li>
+      <li><a href="#predict">Prediction</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="home">
+    <h1>Solar Power Production Prediction System</h1>
+    <p>Powered by XGBoost & FastAPI</p>
+</section>
+
+<section class="form-section" id="predict">
+  <h2 style="text-align: center; font-family: Arial;">Enter Your Data for Prediction</h2>
+  
+  <form id="prediction-form" style="display: flex; flex-wrap: wrap; justify-content: center; max-width: 800px; margin: auto; font-family: sans-serif;">
+    
+    <div class="input-wrapper">
+      <i class="fas fa-bolt icon"></i>
+      <input type="text" id="avg_isc_test_a" placeholder="ISC Test (A)" required>
+    </div>
+
+    <div class="input-wrapper">
+      <i class="fas fa-radiation icon"></i>
+      <input type="text" id="avg_geff_test_w_m2" placeholder="GEFF Test (W/m²)" required>
+    </div>
+
+    <div class="input-wrapper">
+      <i class="fas fa-thermometer-half icon"></i>
+      <input type="text" id="avg_moduletemp1_c" placeholder="Module Temp (°C)" required>
+    </div>
+
+    <div class="input-wrapper">
+      <i class="fas fa-sun icon"></i>
+      <input type="text" id="avg_temp_refcell_c" placeholder="Ref Cell Temp (°C)" required>
+    </div>
+
+    <div class="input-wrapper">
+      <i class="fas fa-wind icon"></i>
+      <input type="text" id="avg_wind_speed_m_s" placeholder="Wind Speed (m/s)" required>
+    </div>
+
+    <div class="input-wrapper">
+      <i class="fas fa-tint icon"></i>
+      <input type="text" id="avg_humidity_pct" placeholder="Humidity (%)" required>
+    </div>
+
+    <div style="width: 100%; text-align: center;">
+      <button type="submit" style="padding: 10px 25px; font-size: 16px; background-color: #f9a826; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        <i class="fas fa-magnifying-glass-chart"></i> Predict
+      </button>
+
+      <div id="result-text" class="result" style="margin-top: 20px;">
+        </div>
+    </div>
+  </form>
+</section>
+
+<script>
+  document.getElementById("prediction-form").addEventListener("submit", async function(e) {
+      e.preventDefault(); // منع إعادة تحميل الصفحة
+
+      const resultDiv = document.getElementById("result-text");
+      resultDiv.style.color = "#333";
+      resultDiv.innerText = "Processing...";
+
+      // 1. تجميع البيانات من الحقول
+      const data = {
+          "avg_isc_test_a": parseFloat(document.getElementById("avg_isc_test_a").value),
+          "avg_geff_test_w_m2": parseFloat(document.getElementById("avg_geff_test_w_m2").value),
+          "avg_moduletemp1_c": parseFloat(document.getElementById("avg_moduletemp1_c").value),
+          "avg_temp_refcell_c": parseFloat(document.getElementById("avg_temp_refcell_c").value),
+          "avg_wind_speed_m_s": parseFloat(document.getElementById("avg_wind_speed_m_s").value),
+          "avg_humidity_pct": parseFloat(document.getElementById("avg_humidity_pct").value)
+      };
+
+      // 2. إرسال البيانات إلى FastAPI (Endpoint: /api/predict)
+      try {
+          const response = await fetch("/api/predict", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+              // 3. عرض النتيجة
+              const power = result.predicted_power.toFixed(2);
+              resultDiv.style.color = "green";
+              resultDiv.innerText = `Predicted Power: ${power} W`;
+          } else {
+              // 4. عرض الخطأ
+              resultDiv.style.color = "red";
+              resultDiv.innerText = `Error: ${result.error || 'Prediction failed'}`;
+          }
+      } catch (error) {
+          resultDiv.style.color = "red";
+          resultDiv.innerText = `Network Error: ${error.message}`;
+      }
+  });
+</script>
+
+<section class="about" id="about">
+  <h2>About the Project</h2>
+  <p>
+      This project utilizes a pre-trained <b>XGBoost model</b> to predict solar power generation based on key
+      environmental and operational variables such as <b>ISC, GEFF, module temperature</b>, and 
+      <b>humidity</b>. The model was trained on a full year of minute-level data and optimized using <b>GridSearchCV</b> 
+      to achieve high accuracy (R² > 0.98).
+      <br><br>
+      The system is deployed through a modern web interface built with <b>Python (FastAPI)</b> and <b>JavaScript</b>, 
+      allowing users to input conditions for 
+      instant prediction. This intelligent platform supports solar energy management by enabling accurate, 
+      fast, and continuous forecasting.
+  </p>
+</section>
+
+<footer>
+    <p>All rights reserved © Deanship of E-Services © 2025 </p>
+</footer>
+
+</body>
+</html>
