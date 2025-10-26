@@ -2,9 +2,8 @@
 **Spark Internship Project — AI UNIT, King Khalid University**
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
-![LightGBM](https://img.shields.io/badge/LightGBM-Forecasting-green)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Predictive-orange)
-![Flask](https://img.shields.io/badge/Flask-WebApp-black?logo=flask)
+![FastAPI](https://img.shields.io/badge/Fast-API-WebApp-black?logo=fast)
 ![AI](https://img.shields.io/badge/AI%20Unit-KKU-red)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
